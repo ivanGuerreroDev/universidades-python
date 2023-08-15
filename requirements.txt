@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+flask_login
+flask_admin
+flask_migrate
+flask_bcrypt
+shortuuid
+psycopg2
