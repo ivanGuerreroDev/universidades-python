@@ -9,6 +9,7 @@ from models.course import Course
 from models.department import Department
 from models.teacher import Teacher
 from models.student import Student
+from models.period import Period
 from models.section import Section
 from models.user import User
 
@@ -62,10 +63,11 @@ with app.app_context():
     admin=Admin(app,template_mode="bootstrap4",)
     admin.add_view( AdminModelView(User, db.session)) 
     admin.add_view( AdminModelView(University, db.session)) 
-    admin.add_view( AdminModelView(Course, db.session))
-    admin.add_view( AdminModelView(Department, db.session))
     admin.add_view( AdminModelView(Teacher, db.session))
     admin.add_view( AdminModelView(Student, db.session))
+    admin.add_view( AdminModelView(Department, db.session))
+    admin.add_view( AdminModelView(Course, db.session))
+    admin.add_view( AdminModelView(Period, db.session))
     admin.add_view( AdminModelView(Section, db.session))
     
     if __name__=="__main__":
