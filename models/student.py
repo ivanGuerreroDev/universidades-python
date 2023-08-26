@@ -4,6 +4,7 @@ class Student(db.Model):
     __tablename__="students"
     id=db.Column(db.Integer,primary_key=True)
     university_id=db.Column(db.Integer,db.ForeignKey("universities.id"))
+    university=db.relationship("University",backref="students")
     name=db.Column(db.String(50))
 
     def __init__(self,name,university_id):

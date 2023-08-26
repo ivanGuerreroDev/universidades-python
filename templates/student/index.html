@@ -1,0 +1,36 @@
+{% extends "home_base.html" %}
+
+{% block content %}
+<h2>Estudiantes</h2>
+<a href="{{url_for('students.create')}}" class="btn btn-primary m-1 rounded-pill">Crear</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Universidad</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if students == None %}
+      <tr>
+        <th scope="row">No hay estudiantes</th>
+      </tr>
+    {% endif %}
+    {% if students != None %}
+      {% for student in students %}
+        <tr>
+          <th scope="row">{{student.id}}</th>
+          <td>{{student.university.name}}</td>
+          <td>{{student.name}}</td>
+          <td>
+            <a href="{{url_for('students.update', id=student.id)}}" class="btn btn-warning m-1 rounded-pill">Editar</a>
+            <a href="{{url_for('students.delete', id=student.id)}}" class="btn btn-danger m-1 rounded-pill">Eliminar</a>
+        </tr>
+      {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+
+{% endblock %}

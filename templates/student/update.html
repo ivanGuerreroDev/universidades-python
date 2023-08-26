@@ -1,0 +1,26 @@
+{% extends "home_base.html" %}
+
+{% block content %}
+<h2>Actualizar estudiante</h2>
+<form action="{{url_for('students.update', id=student.id)}}" method="POST">
+  <div class="mb-3">
+    <label for="university" class="form-label">Universidad</label>
+    <select class="form-select" aria-label="Default select example" id="university" name="university_id">
+      <option>Selecciona una universidad</option>
+      {% for university in universities %}
+        {% if student.university_id == university.id %}
+          <option selected value="{{university.id}}">{{university.name}}</option>
+        {% else %}
+          <option value="{{university.id}}">{{university.name}}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{student.name}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}
+```

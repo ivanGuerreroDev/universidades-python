@@ -11,6 +11,7 @@ from models.teacher import Teacher
 from models.student import Student
 from models.period import Period
 from models.section import Section
+from models.section_students import section_students
 from models.user import User
 
 with app.app_context():
@@ -69,6 +70,7 @@ with app.app_context():
     admin.add_view( AdminModelView(Course, db.session))
     admin.add_view( AdminModelView(Period, db.session))
     admin.add_view( AdminModelView(Section, db.session))
+    admin.add_view( AdminModelView(section_students, db.session))
     
     if __name__=="__main__":
         create_super_user()

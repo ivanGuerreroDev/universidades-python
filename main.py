@@ -10,6 +10,9 @@ app.config['SQLALCHEMY_DATABASE_URI']="sqlite:///proyecto-universidad.db" #postg
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
 app.config["SECRET_KEY"]="ths973ydj28"
 app.config['FLASK_ADMIN_FLUID_LAYOUT'] = True
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config['FLASK_DEBUG'] = True
+app.config['FLASK_ENV'] = 'development'
 
 db=SQLAlchemy(app)
 bcrypt=Bcrypt(app)
